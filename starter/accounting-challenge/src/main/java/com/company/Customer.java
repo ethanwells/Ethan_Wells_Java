@@ -35,7 +35,8 @@ public class Customer {
 
     @Override
     public String toString() {
-        //update this
-        return "Update me";
+        // update this
+        // customer id, customer name, customer balance
+        return String.format("%d %s %d", id, name, getBalance());
     }
 }

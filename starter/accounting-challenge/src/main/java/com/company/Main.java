@@ -3,6 +3,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -28,6 +29,19 @@ public class Main {
 
     public static void main(String[] args) {
         //Update this
+        // Convert List<String[]> -> List<Customer[]>
+        List<Customer> customerData2 = customerData.stream()
+                .map(data -> {
+                    Customer customer = new Customer();
+                    customer.setId(Integer.parseInt(data[0]));
+                    customer.setName(data[1]);
+                    return customer;
+                })
+                .collect(Collectors.toList());
+        System.out.println(customerData2.toString());
+        customerData2.stream().forEach(customer -> System.out.println(customer.toString()));
+
+        // +/- Accounts
         System.out.println("Positive accounts:");
         System.out.println("Negative accounts:");
     }
