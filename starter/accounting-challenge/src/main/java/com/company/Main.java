@@ -52,9 +52,6 @@ public class Main {
                 })
                 .collect(Collectors.toList());
         customerObjects.removeAll(Collections.singleton(null));
-        for (Customer c : customerObjects) {
-            System.out.println(c);
-        }
 
         // +/- Accounts
         System.out.println("Positive accounts:");
