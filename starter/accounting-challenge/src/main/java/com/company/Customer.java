@@ -2,6 +2,8 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Customer {
     private int id;
@@ -12,7 +14,7 @@ public class Customer {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(int id)   {
         this.id = id;
     }
 
@@ -25,8 +27,9 @@ public class Customer {
     }
 
     public int getBalance() {
-        //update this
-        return 0;
+        // update this | updated
+        int balance = charges.stream().mapToInt(AccountRecord::getCharge).sum();
+        return balance;
     }
 
     public List<AccountRecord> getCharges() {
@@ -35,7 +38,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        // update this
+        // update this | updated
         // customer id, customer name, customer balance
         return String.format("%d %s %d", id, name, getBalance());
     }

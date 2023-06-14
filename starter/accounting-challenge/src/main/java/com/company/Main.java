@@ -1,8 +1,6 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -28,21 +26,49 @@ public class Main {
     );
 
     public static void main(String[] args) {
-        //Update this
+        // Update this | updated
         // Convert List<String[]> -> List<Customer[]>
-        List<Customer> customerData2 = customerData.stream()
+        Dictionary<Integer, Customer> dict = new Hashtable<>();
+        List<Customer> customerObjects = customerData.stream()
                 .map(data -> {
+                    if (dict.get(Integer.parseInt(data[0])) != null) {
+                        List<AccountRecord> charges = dict.get(Integer.parseInt(data[0])).getCharges();
+                        AccountRecord accountRecord = new AccountRecord();
+                        accountRecord.setCharge(Integer.parseInt(data[2]));
+                        accountRecord.setChargeDate(data[3]);
+                        charges.add(accountRecord);
+                        return null;
+                    }
                     Customer customer = new Customer();
+                    dict.put(Integer.parseInt(data[0]), customer);
                     customer.setId(Integer.parseInt(data[0]));
                     customer.setName(data[1]);
+                    List<AccountRecord> charges = customer.getCharges();
+                    AccountRecord accountRecord = new AccountRecord();
+                    accountRecord.setCharge(Integer.parseInt(data[2]));
+                    accountRecord.setChargeDate(data[3]);
+                    charges.add(accountRecord);
                     return customer;
                 })
                 .collect(Collectors.toList());
-        System.out.println(customerData2.toString());
-        customerData2.stream().forEach(customer -> System.out.println(customer.toString()));
+        customerObjects.removeAll(Collections.singleton(null));
+        for (Customer c : customerObjects) {
+            System.out.println(c);
+        }
 
         // +/- Accounts
         System.out.println("Positive accounts:");
+        customerObjects.stream().forEach(customer -> {
+            if (customer.getBalance() > 0) {
+                System.out.println(customer.toString());
+            }
+        });
+
         System.out.println("Negative accounts:");
+        customerObjects.stream().forEach(customer -> {
+            if (customer.getBalance() < 0) {
+                System.out.println(customer.toString());
+            }
+        });
     }
 }
