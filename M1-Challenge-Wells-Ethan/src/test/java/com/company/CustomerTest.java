@@ -21,7 +21,7 @@ class CustomerTest {
     }
 
     @Test
-    void getBalance() {
+    void testGetBalance() {
         assertEquals(10, customer.getBalance());
     }
 

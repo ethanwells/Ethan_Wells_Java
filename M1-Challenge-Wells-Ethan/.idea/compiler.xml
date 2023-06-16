@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="accounting-challenge" />
         <module name="solved" />
+        <module name="M1-Challenge-Wells-Ethan" />
       </profile>
     </annotationProcessing>
   </component>
