@@ -1,7 +1,7 @@
 package com.company;
 
 import java.util.*;
-import java.util.stream.Collectors;
+import java.util.stream.Collectors; // import collectors
 
 public class Main {
 
