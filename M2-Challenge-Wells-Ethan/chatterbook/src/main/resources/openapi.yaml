@@ -1,127 +1,127 @@
-{
-  "openapi": "3.0.1",
-  "info": {
-    "title": "OpenAPI definition",
-    "version": "v0"
-  },
-  "servers": [
     {
-      "url": "http://localhost:8080",
-      "description": "Generated server url"
-    }
-  ],
-  "paths": {
-    "/users": {
-      "get": {
-        "tags": [
-          "controller"
-        ],
-        "operationId": "getUsers",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/User"
+      "openapi": "3.0.1",
+      "info": {
+        "title": "OpenAPI definition",
+        "version": "v0"
+      },
+      "servers": [
+        {
+          "url": "http://localhost:8080",
+          "description": "Generated server url"
+        }
+      ],
+      "paths": {
+        "/users": {
+          "get": {
+            "tags": [
+              "controller"
+            ],
+            "operationId": "getUsers",
+            "responses": {
+              "200": {
+                "description": "OK",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/User"
+                      }
+                    }
                   }
                 }
               }
             }
           }
-        }
-      }
-    },
-    "/users/{username}": {
-      "get": {
-        "tags": [
-          "controller"
-        ],
-        "operationId": "getUser",
-        "parameters": [
-          {
-            "name": "username",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
+        },
+        "/users/{username}": {
+          "get": {
+            "tags": [
+              "controller"
+            ],
+            "operationId": "getUser",
+            "parameters": [
+              {
+                "name": "username",
+                "in": "path",
+                "required": true,
                 "schema": {
-                  "$ref": "#/components/schemas/User"
+                  "type": "string"
                 }
               }
-            }
-          }
-        }
-      }
-    },
-    "/users/chatterPosts/{username}": {
-      "get": {
-        "tags": [
-          "controller"
-        ],
-        "operationId": "getChatterPostsOfUser",
-        "parameters": [
-          {
-            "name": "username",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ChatterPost"
+            ],
+            "responses": {
+              "200": {
+                "description": "OK",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/User"
+                    }
                   }
                 }
               }
             }
           }
-        }
-      }
-    }
-  },
-  "components": {
-    "schemas": {
-      "ChatterPost": {
-        "type": "object",
-        "properties": {
-          "text": {
-            "type": "string"
+        },
+        "/users/chatterPosts/{username}": {
+          "get": {
+            "tags": [
+              "controller"
+            ],
+            "operationId": "getChatterPostsOfUser",
+            "parameters": [
+              {
+                "name": "username",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "OK",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ChatterPost"
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       },
-      "User": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
+      "components": {
+        "schemas": {
+          "ChatterPost": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string"
+              }
+            }
           },
-          "chatterPosts": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ChatterPost"
+          "User": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "chatterPosts": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ChatterPost"
+                }
+              }
             }
           }
         }
       }
     }
-  }
-}
