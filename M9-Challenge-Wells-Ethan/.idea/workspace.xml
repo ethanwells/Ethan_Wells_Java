@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57494b9e-c533-4108-833c-5154a0414aa9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/authorization-service/src/main/java/com/company/authorizationservice/OAuthConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authorization-service/src/main/java/com/company/authorizationservice/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authorization-service/src/main/java/com/company/authorizationservice/controller/UserInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
